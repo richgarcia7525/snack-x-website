@@ -5,6 +5,87 @@ body {
     color: #fff;
     background: linear-gradient(135deg, #020024, #090979, #00d4ff);
   }
+
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  /* Menu Section */
+#menu {
+    padding: 2rem;
+    background-color: #090979;
+    text-align: center;
+  }
+  
+  #menu h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #ffdf00; /* Gold color for headings */
+  }
+  
+  #menu-items {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    justify-items: center;
+  }
+  
+  .menu-item {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 1rem;
+    text-align: center;
+    color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+  }
+  
+  .menu-item:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+    transform: translateY(-5px);
+  }
+  
+  .menu-item img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+  }
+  
+  .menu-item h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: #ff007f;
+  }
+  
+  .menu-item p {
+    margin: 0.5rem 0;
+  }
+  
+  .menu-item strong {
+    font-size: 1.2rem;
+    color: #ffdf00;
+  }
+  nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+  }
+  
+  nav ul li a {
+    text-decoration: none;
+    color: #ffdf00;
+    font-weight: bold;
+    transition: color 0.3s ease;
+  }
+  
+  nav ul li a:hover {
+    color: #ff007f;
+  }
+  
   
   header {
     background-color: #090979;
@@ -46,6 +127,110 @@ body {
   
   .cta-button:hover {
     background-color: #e60073;
+  }
+
+  #cart {
+    margin-top: 2rem;
+    padding: 1rem;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    text-align: center;
+    color: #fff;
+  }
+  
+  #cart-items {
+    margin-bottom: 1rem;
+  }
+  
+  #cart button {
+    background-color: #ff007f;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  #cart button:hover {
+    background-color: #e60073;
+  }
+  
+ #contact {
+    padding: 2rem;
+    background-color: #020024;
+    color: #fff;
+    text-align: center;
+  }
+  
+  #contact h2 {
+    color: #ffdf00;
+    margin-bottom: 1rem;
+  }
+  
+  #contact form {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  
+  #contact label {
+    display: block;
+    margin-bottom: 0.5rem;
+    text-align: left;
+  }
+  
+  #contact input,
+  #contact textarea {
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  #contact button {
+    background-color: #ff007f;
+    color: #fff;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+  }
+  
+  #contact button:hover {
+    background-color: #e60073;
+  }
+  #back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #ff007f;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none;
+    font-size: 1.5rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  }
+  
+  #back-to-top:hover {
+    background-color: #e60073;
+  }
+  
+  @media (max-width: 768px) {
+    #menu-items {
+      grid-template-columns: 1fr;
+    }
+  
+    #hero {
+      padding: 2rem 1rem;
+    }
+  
+    .menu-item {
+      margin: 1rem 0;
+    }
   }
   
   /* Footer */

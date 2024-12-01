@@ -67,8 +67,16 @@ const menuItems = [
       image: "https://via.placeholder.com/150" 
     }
   ];
-  
-  // Populate menu items dynamically
+
+  itemDiv.innerHTML = `
+  <img src="${item.image}" alt="${item.name}" loading="lazy">
+  <h3>${item.name}</h3>
+  <p>${item.description}</p>
+  <p><strong>${item.price}</strong></p>
+  <button onclick="addToCart(${JSON.stringify(item).replace(/"/g, '&quot;')})">Add to Cart</button>
+`;
+
+// Populate menu items dynamically
   const menuContainer = document.getElementById('menu-items');
   
   menuItems.forEach(item => {
@@ -84,6 +92,69 @@ const menuItems = [
   
     menuContainer.appendChild(itemDiv);
   });
+
+  // Back-to-top button functionality
+const backToTopButton = document.getElementById("back-to-top");
+
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 300) {
+    backToTopButton.style.display = "block";
+  } else {
+    backToTopButton.style.display = "none";
+  }
+});
+
+backToTopButton.addEventListener("click", () => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+});
+
+// Shopping cart functionality
+let cart = [];
+let total = 0;
+
+// Add items to cart
+function addToCart(item) {
+  cart.push(item);
+  total += parseFloat(item.price.slice(1)); // Remove $ and convert to number
+  updateCart();
+}
+
+// Update cart display
+function updateCart() {
+  const cartItemsContainer = document.getElementById("cart-items");
+  const cartTotal = document.getElementById("cart-total");
+
+  // Clear existing cart items
+  cartItemsContainer.innerHTML = "";
+
+  // Add each item to the cart display
+  cart.forEach((item, index) => {
+    const cartItem = document.createElement("div");
+    cartItem.textContent = `${item.name} - ${item.price}`;
+    cartItemsContainer.appendChild(cartItem);
+  });
+
+  // Update total
+  cartTotal.textContent = total.toFixed(2);
+}
+
+// Populate menu items dynamically with "Add to Cart" buttons
+menuItems.forEach(item => {
+  const itemDiv = document.createElement('div');
+  itemDiv.classList.add('menu-item');
+
+  itemDiv.innerHTML = `
+    <img src="${item.image}" alt="${item.name}">
+    <h3>${item.name}</h3>
+    <p>${item.description}</p>
+    <p><strong>${item.price}</strong></p>
+    <button onclick="addToCart(${JSON.stringify(item).replace(/"/g, '&quot;')})">Add to Cart</button>
+  `;
+
+  menuContainer.appendChild(itemDiv);
+});
+
+
   
   
 
